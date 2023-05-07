@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+    <title>Create a project</title>
+</head>
+<body>
+    <%- include('./partials/header.ejs') %>
+    <h1>NEW PROJECT</h1>
+    <div class="container">
+    <form action="/projects" method="POST">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Project's Name:</label>
+            <input class="form-control" type="text" name="name" placeholder="Project's Name">
+        </div>
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Project's Location:</label>
+            <input class="form-control" type="text" name="location" placeholder="Project's Location">
+        </div>
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Project's Date:</label>
+            <input class="form-control" type="number" name="date" placeholder="Project's Year">
+        </div>
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Project's Typology:</label>
+            <input class="form-control" type="text" name="typology" placeholder="Project's Typology">
+        </div>
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Description:</label>
+            <textarea  class="form-control" type="text" name="description" rows="6" placeholder="Project's Description"></textarea>
+        </div>
+        <div class="mb-3">
+        <label for="formFile" class="form-label">Upload Images:</label>
+        <input type="file" id="myFile" name="image">
+        <input class="btn btn-outline-warning" type="submit" value="Create Project">
+        </div>
+      </form>
+    </div>
+</body>
+</html>

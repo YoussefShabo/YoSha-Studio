@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+    <title>Projects List</title>
+</head>
+<body>
+        <%- include('./partials/header.ejs') %>
+            <h1><%=projects.name %></h1>
+        <div class="container-sm">
+            <h6>Location: <%=projects.location%> - <%=projects.date%></h6>
+            <h6>Typology: <%=projects.typology%></h6>
+            <div class="editDelete">
+                <form action="/projects/<%=projects._id%>/edit">
+                    <input class="btn btn-outline-warning" type="submit" value="EDIT">
+                </form>
+                <form action="/projects/<%=projects._id%>?_method=DELETE" method="POST">
+                    <input class="btn btn-outline-warning" type="submit" value="DELETE">
+                </form>
+            </div>
+            <div class="container text-justify">
+                <div class="row align-items-start">
+                    <div class="col">
+                        <p><%=projects.description%></p>
+                        <img id="showimg"  src="<%=projects.image6%>" alt="">
+                        <img id="showimg"  src="<%=projects.image7%>" alt="">
+                    </div>
+                    <div class="col">
+                        <img id="showimg"  src="<%=projects.image1%>" alt="">
+                        <img id="showimg"  src="<%=projects.image2%>" alt="">
+                        <img id="showimg"  src="<%=projects.image3%>" alt="">
+                        <img id="showimg"  src="<%=projects.image4%>" alt="">
+                        <img id="showimg"  src="<%=projects.image5%>" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

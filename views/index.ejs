@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+    <title>Home</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="/app.js"></script>
+</head>
+<body>
+    <%- include('./partials/header.ejs') %>
+    <div id="projhead">
+        <h1>YoSha Studio Projects</h1>
+        <div id="btndiv">
+            <button class="mapbtn btn btn-outline-warning" id="openMapModal"><img id="mapbtn" src="./map-location-dot-solid-svg.png" alt=""></button>
+            <button class="mapbtn btn btn-outline-warning" id="openListModal"><img id="mapbtn" src="./gallery-solid-svg.png" alt=""></button>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <!-- Map Section -->
+        <div id="mapModal">
+            <div id="map">
+                <iframe src="https://snazzymaps.com/embed/473271" width="75%" height="600px" style="border:none;"></iframe>
+            </div>
+        </div>
+        <!-- Cards Section -->
+        <div class="cardContainer" id="listModal">
+            <% for(let i=0; i < projects.length; i++){%>
+                <div class="card" style="width: 20rem;">
+                    <a href="/projects/<%=projects[i].id%>">
+                        <img id="projimg" class="card-img-top" src="<%=projects[i].image1%>" alt="">
+                        <div class="card-body">
+                            <h3 class="card-title"><%=projects[i].name %></h3>
+                            <p class="card-text"><%=projects[i].location%> - <%=projects[i].date%></p>
+                        </div>
+                    </a>
+                    <div class="cardBtn list-group-item">
+                        <form action="/projects/<%=projects[i]._id%>/edit">
+                            <input class="btn btn-outline-warning" type="submit" value="EDIT">
+                        </form>
+                        <form action="/projects/<%=projects[i]._id%>?_method=DELETE" method="POST">
+                            <input class="btn btn-outline-warning" type="submit" value="DELETE">
+                        </form>
+                    </div>
+                </div>
+            <%}%>
+        </div>
+    </div>
+
+</body>
+</html>
